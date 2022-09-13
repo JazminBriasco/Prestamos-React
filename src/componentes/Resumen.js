@@ -13,19 +13,20 @@ const Resumen = ({ amount, term, showLoading, setSowLoading }) => {
 
     useEffect(() => {
         calculateValues();
-
-        console.log(showLoading);
         setTimeout(() => {
             setSowLoading(false);
         }, 3000);
     });
 
     function calculateValues() {
-        let rateSelected = interesMensual.filter(per => per.period === term);
+        term = Number(term);
         amount = Number(amount);
+        let rateSelected = interesMensual.filter(per => per.period === term);
         let interes = (Number(amount) * (rateSelected[0]?.rate / 100) * term);
-        saveMensual(((amount + interes) / term).toFixed(2));
-        saveTotal(Number(amount + interes).toFixed(2));
+        let monthlyAmt = Number(((amount + interes) / term).toFixed(2));
+        let totalAmt = Number((amount + interes).toFixed(2)); 
+        saveMensual(monthlyAmt);
+        saveTotal(totalAmt);
     }
 
     return (

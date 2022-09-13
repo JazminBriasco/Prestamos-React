@@ -27,7 +27,10 @@ const Formulario = ({ amount, saveAmount, term, saveTerm }) => {
                             className="u-full-width"
                             type="number"
                             placeholder="Example: 3000"
-                            onChange={e => saveAmount(e.target.value)}
+                            onChange={e => {
+                                saveAmount(e.target.value) 
+                                saveIsHidden(true)}
+                            }
                         />
                     </div>
                     <div>
