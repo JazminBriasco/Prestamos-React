@@ -1,38 +1,29 @@
 import React, { Fragment, useState } from 'react';
 import Header from './componentes/Header'
 import Formulario from './componentes/Formulario';
-import logo from './logo.svg';
 import './App.css';
 
-
 function App() {
-
-const [cantidad, guardarCantidad] = useState(0);
-
-const [plazo, guardarPlazo] = useState('');
-
-
+  const [amount, saveAmount] = useState(0);
+  const [term, saveTerm] = useState('');
 
   return (
     <Fragment>
       <Header
-        titulo ="Cotizador de Prestamos"
-        cantidad = {cantidad}
+        title="Loan quote"
+        amount={amount}
       />
 
-      <div className ="container">
-          <Formulario
-            cantidad = {cantidad}
-            guardarCantidad = {guardarCantidad}
-            plazo = {plazo}
-            guardarPlazo = {guardarPlazo}
-          />
+      <div className="container">
+        <Formulario
+          amount={amount}
+          saveAmount={saveAmount}
+          term={term}
+          saveTerm={saveTerm}
+        />
       </div>
     </Fragment>
-
- 
-
-);
+  );
 }
 
 export default App;
