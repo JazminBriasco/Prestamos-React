@@ -21,7 +21,7 @@ const Resumen = ({ amount, term, showLoading, setSowLoading }) => {
     });
 
     function calculateValues() {
-        let rateSelected = interesMensual.filter(per => per.period == term);
+        let rateSelected = interesMensual.filter(per => per.period === term);
         amount = Number(amount);
         let interes = (Number(amount) * (rateSelected[0]?.rate / 100) * term);
         saveMensual(((amount + interes) / term).toFixed(2));
